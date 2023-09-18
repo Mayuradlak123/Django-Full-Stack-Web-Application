@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.11.0/toastify.min.js"></script>
+    <title>Student List</title>
+
+</head>
+<body class="bg-gray-100 py-16">
+    {%include "navbar.html"%}
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-semibold py-8">Student List</h1>
+        <table class="min-w-full bg-white">
+            <!-- Table headers -->
+            <thead>
+                <tr>
+                    <th class="px-3 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">ID</th>
+                    <th class="px-3 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Name</th>
+                    <th class="px-3 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Email</th>
+                    <th class="px-3 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Phone</th>
+                    <th class="px-3 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Roll No.</th>
+                    <th class="px-3 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Age</th>
+                    <th class="px-3 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Department</th>
+                    <th class="px-3 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider ">Action</th>
+                </tr>
+            </thead>
+            <!-- Table body for student data -->
+            <tbody>
+              
+                {% for student in students %}
+                <tr>
+                    <td class="px-3 py-2 whitespace-no-wrap border-b border-gray-300">
+                        {{ student.id }}
+                    </td>
+                    <td class="px-3 py-4 whitespace-no-wrap border-b border-gray-300">
+                        {{ student.name }}
+                    </td>
+                    <td class="px-3 py-4 whitespace-no-wrap border-b border-gray-300">
+                        {{ student.email }}
+                    </td>
+                    <td class="px-3 py-4 whitespace-no-wrap border-b border-gray-300">
+                        {{ student.phone }}
+                    </td>
+                    <td class="px-3 py-4 whitespace-no-wrap border-b border-gray-300">
+                        {{ student.roll }}
+                    </td>
+                    <td class="px-3 py-4 whitespace-no-wrap border-b border-gray-300">
+                        {{ student.age }}
+                    </td>
+                    <td class="px-3 py-4 whitespace-no-wrap border-b border-gray-300">
+                        {{ student.department }}
+                    </td>
+                    <td class="px-3 py-4 whitespace-no-wrap border-b border-gray-300">
+                        <a  class="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600 cursor-pointer">Edit</a>
+                        <a href="{% url 'delete-student' student.id %}" onclick="showToast" class="bg-red-500 text-white py-1 px-2 rounded hover:bg-red-600 cursor-pointer">Delete</a>
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {%include "footer.html"%}
+</body>
+<script>
+    function showToast() {
+      window.location.reload();
+    }
+</script>
+</html>

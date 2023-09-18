@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+{% include "navbar.html"%}
+    <!-- Hero Section -->
+    <section class="bg-blue-500 text-white py-20">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold">{{content}}</h1>
+            <p class="mt-4 text-lg">Discover amazing content and more!</p>
+            <a href="/add-student" class="mt-8 inline-block bg-white text-blue-500 hover:bg-blue-100 py-2 px-6 rounded-full font-semibold transition duration-300 ease-in-out">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold">Our Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2">Create</h3>
+                    <p class="text-gray-600">Student Management System you can Create new Student.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2"> Read </h3>
+                    <p class="text-gray-600">Student Management System you can get new Student</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2"> Update & Delete</h3>
+                      <p class="text-gray-600">Student Management System you can Delete new Student</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+   {% include "footer.html" %}
+
+</body>
+</html>
